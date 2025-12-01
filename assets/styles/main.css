@@ -1,0 +1,12 @@
+h1 {
+    font-size: 3em;
+    color: #333;
+}
+
+body {
+     background: linear-gradient(to right, #b875649f, #feb47b94);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+}
