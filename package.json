@@ -4,10 +4,25 @@
   "description": "Vypracovaný úkol online vyhledavače pomocí API Google Search.",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Martin Hejl",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pletor/inizio-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pletor/inizio-search/issues"
+  },
+  "homepage": "https://github.com/Pletor/inizio-search#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
 }
