@@ -56,4 +56,10 @@ app.post('/api/search', async (req, res) => {
     }
 });
 
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server běží na http://localhost:${PORT}`);
+    });
+}
 
+module.exports = app;
