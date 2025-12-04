@@ -57,5 +57,5 @@ app.post('/api/search', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`✅ Server běží na http://localhost:${PORT}`);
+    console.log(`Server běží na http://localhost:${PORT}`);
 });

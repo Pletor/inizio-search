@@ -12,15 +12,19 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
-
-/* Nadpis */
+/* Velikost písmen: 
+    1.5rem = 24px,
+    1.125rem = 18px,
+    1rem = 16px,
+    0.875rem = 14px,
+    0.8125rem = 13px */
 h1 {
     margin-bottom: 20px;
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
     color: #333;
 }
 
-/* Search controls */
+/* Vyhledávací input a jeho tlačítko hledat  */
 .search-controls {
     display: flex;
     gap: 10px;
@@ -30,7 +34,7 @@ h1 {
 #searchBox {
     flex: 1;
     padding: 10px;
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
@@ -43,7 +47,7 @@ h1 {
 
 .btn-search {
     padding: 10px 20px;
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
     background-color: #1a73e8;
     color: white;
     border: none;
@@ -62,7 +66,7 @@ h1 {
     outline-offset: 2px;
 }
 
-/* Export tlačítka */
+/* Design export tlačítek JSON, CSV pod vyhledáváním */
 .export-buttons {
     margin-top: 10px;
     display: none;
@@ -71,7 +75,7 @@ h1 {
 .btn-export-json,
 .btn-export-csv {
     padding: 8px 16px;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem;
     background-color: #34a853;
     color: white;
     border: none;
@@ -93,7 +97,7 @@ h1 {
     outline-offset: 2px;
 }
 
-/* Výsledky */
+/* Upravený design výsledků z vyhledávání API */
 .results {
     margin-top: 20px;
 }
@@ -107,7 +111,7 @@ h1 {
 .search-result a {
     color: #1a73e8;
     text-decoration: none;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
     font-weight: bold;
 }
 
@@ -123,18 +127,17 @@ h1 {
 
 .search-result .url {
     color: #006621;
-    font-size: 0.8125rem; /* 13px */
+    font-size: 0.8125rem;
     margin-top: 4px;
 }
 
 .search-result p {
     color: #444;
-    font-size: 0.875rem; /* 14px */
-    margin-top: 6px;
+    font-size: 0.875rem;
     line-height: 1.5;
 }
 
-/* Responzivita */
+/* Mini responzivita */
 @media (max-width: 768px) {
     body {
         padding: 15px;

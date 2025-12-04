@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportJsonBtn = document.querySelector('.btn-export-json');
     const exportCsvBtn = document.querySelector('.btn-export-csv');
 
-    let lastResults = null; // Uchovává poslední výsledky pro export
+    let lastResults = null;
 
-    // Bezpečné escapování HTML (ochrana před XSS)
     function escapeHtml(text = '') {
         const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
         return String(text).replace(/[&<>"']/g, ch => map[ch]);
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') performSearch();
     });
 
-    // Export do JSON
     exportJsonBtn.addEventListener('click', () => {
         if (!lastResults) return;
         const dataStr = JSON.stringify(lastResults, null, 2);
@@ -34,14 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         URL.revokeObjectURL(url);
     });
 
-    // Export do CSV
     exportCsvBtn.addEventListener('click', () => {
         if (!lastResults) return;
 
-        // CSV hlavička
         let csv = 'Title,URL,DisplayLink,Snippet\n';
 
-        // Přidej každý výsledek jako řádek
         lastResults.forEach(item => {
             const title = (item.title || '').replace(/"/g, '""');
             const link = item.link || item.formattedUrl || '';
@@ -117,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             resultsContainer.innerHTML = html;
 
-            // Ulož výsledky pro export a zobraz tlačítka
             lastResults = data.items;
             exportButtons.style.display = 'block';
         } catch (error) {

@@ -2,21 +2,18 @@ const request = require('supertest');
 const express = require('express');
 const axios = require('axios');
 
-// Mock axios pro testování bez reálných API volání
 jest.mock('axios');
 
 describe('Server API - Základní testy', () => {
     let app;
 
     beforeEach(() => {
-        // Vytvoř testovací app instanci
         app = express();
         app.use(express.json());
 
         const API_KEY = 'test_api_key';
         const CX = 'test_cx_id';
 
-        // Endpoint z server.js
         app.post('/api/search', async (req, res) => {
             const { query, num = 10, start = 1, gl, hl, googlehost } = req.body || {};
 
@@ -60,7 +57,6 @@ describe('Server API - Základní testy', () => {
         jest.clearAllMocks();
     });
 
-    // Test 1: Základní validace - chybějící query
     test('Vrátí 400 pokud chybí query', async () => {
         const response = await request(app).post('/api/search').send({});
 
@@ -68,7 +64,6 @@ describe('Server API - Základní testy', () => {
         expect(response.body.error).toContain('Chybějící nebo prázdný dotaz');
     });
 
-    // Test 2: Úspěšné vyhledávání
     test('Vrátí výsledky pro validní dotaz', async () => {
         const mockData = {
             items: [
@@ -91,7 +86,6 @@ describe('Server API - Základní testy', () => {
         expect(response.body.items[0].title).toBe('Test výsledek');
     });
 
-    // Test 3: Zpracování chyb z Google API
     test('Zpracuje chybu z Google API', async () => {
         axios.get.mockRejectedValue({
             response: {
