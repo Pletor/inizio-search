@@ -12,15 +12,18 @@ const CX = process.env.GOOGLE_ID_SEARCH;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'src')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.post('/api/search', async (req, res) => { 
-    const {query, num=10, start=1, gl, hl, googlehost} = req.body || {};
+app.post('/api/search', async (req, res) => {
+    const { query, num = 10, start = 1, gl, hl, googlehost } = req.body || {};
 
     if (!API_KEY || !CX) {
-        return res.status(500).json({error:'Nesprávná konfigurace serveru: chybí API klíč nebo ID vyhledavače.'});
+        return res
+            .status(500)
+            .json({ error: 'Nesprávná konfigurace serveru: chybí API klíč nebo ID vyhledavače.' });
     }
-    if (!query || typeof query !== 'string' || query.trim() === ''){
-        return res.status(400).json({error: 'Chybějící nebo prázdný dotaz.'});
+    if (!query || typeof query !== 'string' || query.trim() === '') {
+        return res.status(400).json({ error: 'Chybějící nebo prázdný dotaz.' });
     }
 
     try {
@@ -38,14 +41,17 @@ app.post('/api/search', async (req, res) => {
 
         console.log('Odesílání požadavku na Google Custom Search API s parametry:', params);
 
-        const response = await axios.get(url, { params, timeout: 5000 });
+        const response = await axios.get(url, { params, timeout: 50000 });
         return res.json(response.data);
-
     } catch (error) {
-        console.error('Chyba při volání Google Custom Search API:', error.response ? error.response.data : error.message);
+        console.error(
+            'Chyba při volání Google Custom Search API:',
+            error.response ? error.response.data : error.message
+        );
 
         const status = error.response && error.response.status ? error.response.status : 500;
-        const message = error.response && error.response.data ? error.response.data : { error: error.message };
+        const message =
+            error.response && error.response.data ? error.response.data : { error: error.message };
         return res.status(status).json({ error: message });
     }
 });

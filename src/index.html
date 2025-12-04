@@ -1,24 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles/main.css">
-    <script src="./search.js" defer></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/styles/main.css" />
+        <script src="./search.js" defer></script>
 
-    <title>Online vyhledávač</title>
-</head>
-<body>
+        <title>Online vyhledávač</title>
+    </head>
+    <body>
+        <section>
+            <h1>Online vyhledávání</h1>
 
-    <section>
-        <h1>Online vyhledávání</h1>
-    
-        <div>
-            <input type="text" id="searchBox" placeholder="Zadejte hledaný výraz...">
-            <button id="searchButton">Hledat</button>
-        </div>
-        <div id="results" aria-live="polite"></div>
-    </section>
-    
-</body>
+            <div class="search-controls">
+                <input type="text" id="searchBox" placeholder="Zadejte hledaný výraz..." />
+                <button class="btn-search">Hledat</button>
+            </div>
+            <div class="export-buttons" style="margin-top: 10px; display: none">
+                <button class="btn-export-json">Stáhnout JSON</button>
+                <button class="btn-export-csv" style="margin-left: 10px">Stáhnout CSV</button>
+            </div>
+            <div class="results" aria-live="polite"></div>
+        </section>
+    </body>
 </html>

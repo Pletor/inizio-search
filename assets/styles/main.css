@@ -1,12 +1,150 @@
-h1 {
-    font-size: 3em;
-    color: #9e1f1f;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-     background: linear-gradient(to right, #b875649f, #feb47b94);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 100vh;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Nadpis */
+h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* 24px */
+    color: #333;
+}
+
+/* Search controls */
+.search-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#searchBox {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem; /* 16px */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+#searchBox:focus {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+.btn-search {
+    padding: 10px 20px;
+    font-size: 1rem; /* 16px */
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.btn-search:hover {
+    background-color: #1557b0;
+}
+
+.btn-search:focus {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+/* Export tlačítka */
+.export-buttons {
+    margin-top: 10px;
+    display: none;
+}
+
+.btn-export-json,
+.btn-export-csv {
+    padding: 8px 16px;
+    font-size: 0.875rem; /* 14px */
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.btn-export-json:hover,
+.btn-export-csv:hover {
+    background-color: #2d8e47;
+}
+
+.btn-export-json:focus,
+.btn-export-csv:focus {
+    outline: 2px solid #34a853;
+    outline-offset: 2px;
+}
+
+/* Výsledky */
+.results {
+    margin-top: 20px;
+}
+
+.search-result {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.search-result a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+}
+
+.search-result a:hover {
+    text-decoration: underline;
+}
+
+.search-result a:focus {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.search-result .url {
+    color: #006621;
+    font-size: 0.8125rem; /* 13px */
+    margin-top: 4px;
+}
+
+.search-result p {
+    color: #444;
+    font-size: 0.875rem; /* 14px */
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .search-controls {
+        flex-direction: column;
+    }
+
+    .btn-search {
+        width: 100%;
+    }
 }
